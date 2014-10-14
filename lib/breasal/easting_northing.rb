@@ -1,16 +1,16 @@
 module Breasal
-  
+
   class EastingNorthing
-    
+
     include Breasal::Utils
-    
+
     def initialize(options)
       @easting = options[:easting]
       @northing = options[:northing]
       @type = options[:type] || :gb
     end
-    
-    # Takes OSGB36 or TM75 (Irish national grid) Easting/Northing coords 
+
+    # Takes OSGB36 or TM75 (Irish national grid) Easting/Northing coords
     # and returns WGS84 Latitude and Longitude
     def to_wgs84
       ll = to_latlng(@easting, @northing, @type)
@@ -38,7 +38,7 @@ module Breasal
           @lambda0  = deg_to_rad(-2.0)
           @a        = 6377563.396
           @b        = 6356256.909
-        end 
+        end
 
         @eSquared = ((@a * @a) - (@b * @b)) / (@a * @a)
         @phi      = 0.0
@@ -121,7 +121,7 @@ module Breasal
   	    { :latitude => rad_to_deg(@phi), :longitude => rad_to_deg(@lambda) }
 
   	  end
-    
+
   end
-  
+
 end

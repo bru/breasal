@@ -1,6 +1,6 @@
 module Breasal
 
-  module Utils    
+  module Utils
 
     def deg_to_rad(degrees)
   	  degrees / 180.0 * Math::PI
